@@ -1101,8 +1101,7 @@ footer a:hover { color: var(--violet-300); }
 
     .stat-divider { display: none; }
 
-    .hero-cta-group { flex-direction: column; }
-    .store-badge { min-width: unset; width: 100%; }
+    .hero-cta-group { display: none !important; }
 
     .download-card { padding: 28px 20px; }
     .waitlist-card { padding: 28px 20px; }
