@@ -90,10 +90,13 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ─────────────────────────────────────────
      iOS WAITLIST FORM
   ───────────────────────────────────────── */
-  const waitlistForm   = document.getElementById('waitlistForm');
+  // Paste your Google Apps Script Web App URL here (after deploying the script):
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzlV2dzmabTn2d-jrWTZSmR01Ny-kb6DJzuagpVE-7-KP_zkaE5nFZhWUcvo2A2NdCN/exec';
+
+  const waitlistForm = document.getElementById('waitlistForm');
   const waitlistSuccess = document.getElementById('waitlistSuccess');
-  const submitBtn      = document.getElementById('waitlist-submit-btn');
-  const countEl        = document.getElementById('waitlist-count');
+  const submitBtn = document.getElementById('waitlist-submit-btn');
+  const countEl = document.getElementById('waitlist-count');
 
   // Simulate a live waitlist count
   const baseCount = 2400;
@@ -103,12 +106,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (waitlistForm) {
+    const countrySelect = document.getElementById('waitlist-country-code');
+    const phoneInput = document.getElementById('waitlist-phone');
+    if (countrySelect && phoneInput) {
+      countrySelect.addEventListener('change', function () {
+        if (this.value === 'other') {
+          phoneInput.placeholder = '+44 7911 123456';
+        } else {
+          phoneInput.placeholder = '9876543210';
+        }
+      });
+    }
+
     waitlistForm.addEventListener('submit', function (e) {
       e.preventDefault();
       e.stopPropagation();
 
-      const email   = document.getElementById('waitlist-email');
-      const phone   = document.getElementById('waitlist-phone');
+      const email = document.getElementById('waitlist-email');
+      const phone = document.getElementById('waitlist-phone');
       const country = document.getElementById('waitlist-country-code');
 
       let valid = true;
@@ -123,8 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Phone validation (6–15 digits)
+      // If other country is selected, we allow the '+' sign in the validation check as well
+      const cleanPhoneVal = phone.value.replace(/[^\d+]/g, '');
       const phoneDigits = phone.value.replace(/\D/g, '');
-      if (!phoneDigits || phoneDigits.length < 6 || phoneDigits.length > 15) {
+      if (!phoneDigits || phoneDigits.length < 6 || phoneDigits.length > 17) {
         phone.classList.add('is-invalid');
         valid = false;
       } else {
@@ -135,10 +152,20 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!valid) return;
 
       // Compose data
-      const countryCode = country.value.replace('-ca', ''); // normalize +1-ca → +1
+      let finalPhone = '';
+      if (country.value === 'other') {
+        finalPhone = cleanPhoneVal;
+        if (finalPhone && !finalPhone.startsWith('+')) {
+          finalPhone = '+' + finalPhone;
+        }
+      } else {
+        const countryCode = country.value.replace('-ca', ''); // normalize +1-ca → +1
+        finalPhone = countryCode + phoneDigits;
+      }
+
       const formData = {
         email: email.value.trim(),
-        phone: countryCode + phoneDigits,
+        phone: finalPhone,
         timestamp: new Date().toISOString(),
         source: 'ios-waitlist'
       };
@@ -155,15 +182,17 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Reserving your spot...';
 
-      // Simulate submission (replace with real API/Formspree/etc.)
-      setTimeout(() => {
-        // Store locally so we can use it later
+      // Helper to locally save data as a backup
+      const saveLocallyBackup = () => {
         try {
           const existing = JSON.parse(localStorage.getItem('ss_waitlist') || '[]');
           existing.push(formData);
           localStorage.setItem('ss_waitlist', JSON.stringify(existing));
-        } catch (_) {}
+        } catch (_) { }
+      };
 
+      // Helper to finalize the UI success state
+      const showSuccessState = () => {
         // Update counter
         if (countEl) {
           const cur = parseInt(countEl.textContent.replace(/\D/g, ''), 10) || baseCount;
@@ -176,8 +205,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Scroll into view
         waitlistSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
 
-      }, 1200);
+      // Send data to Google Sheets via Apps Script Web App
+      if (APPS_SCRIPT_URL) {
+        // Use 'text/plain' to avoid CORS preflight OPTIONS request to Google Apps Script
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(formData)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(res => {
+            // Save backup locally anyway for data redundancy
+            saveLocallyBackup();
+            showSuccessState();
+          })
+          .catch(err => {
+            console.warn('Apps Script submission failed, falling back to local storage:', err);
+            // Fall back gracefully so the user is never blocked
+            saveLocallyBackup();
+            showSuccessState();
+          });
+      } else {
+        // Fallback for when the App Script URL is not configured yet
+        setTimeout(() => {
+          saveLocallyBackup();
+          showSuccessState();
+        }, 1000);
+      }
     });
   }
 
@@ -185,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
      STORE BUTTON — brief loading feedback
   ───────────────────────────────────────── */
   const storeLinks = document.querySelectorAll(
-    '#hero-android-btn, #nav-cta-btn, #download-android-btn, #contact-android-btn'
+    '#hero-android-btn, #nav-cta-btn, #download-android-btn, #contact-android-btn, #mobile-android-cta'
   );
 
   storeLinks.forEach(link => {
@@ -196,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Show brief loading indicator
       const tempHTML = isSmall
         ? '<i class="bi bi-hourglass-split me-2"></i><span>Opening…</span>'
-        : this.innerHTML.replace(/(Google Play|Get the App)/i, 'Opening Play Store…');
+        : this.innerHTML.replace(/(Google Play|Get the App|Get Android App)/i, 'Opening Play Store…');
 
       this.innerHTML = tempHTML;
       this.style.pointerEvents = 'none';
@@ -217,19 +281,27 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ─────────────────────────────────────────
-     iOS badge — scroll to waitlist
+     iOS badge — scroll to waitlist & focus email
   ───────────────────────────────────────── */
-  const iosHeroBadge = document.getElementById('hero-ios-btn');
-  if (iosHeroBadge) {
-    iosHeroBadge.addEventListener('click', function (e) {
+  const iosBadges = document.querySelectorAll('#hero-ios-btn, #mobile-ios-cta');
+  iosBadges.forEach(badge => {
+    badge.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.getElementById('ios-waitlist');
       if (target) {
         const top = target.getBoundingClientRect().top + window.scrollY - 88;
         window.scrollTo({ top, behavior: 'smooth' });
+
+        // Focus the email input after smooth scroll completes
+        setTimeout(() => {
+          const emailInput = document.getElementById('waitlist-email');
+          if (emailInput) {
+            emailInput.focus();
+          }
+        }, 800);
       }
     });
-  }
+  });
 
   /* ─────────────────────────────────────────
      TOOLTIP init

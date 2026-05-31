@@ -1,958 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-31B0C4S35J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-31B0C4S35J');
-  </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-31B0C4S35J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-31B0C4S35J');
+    </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SafeScroll — AI Adult Content Blocker for Instagram, TikTok, YouTube & More</title>
-  <meta name="description" content="SafeScroll uses on-device AI to block adult content in real-time across Instagram, Facebook, TikTok, YouTube and every app — keeping children safe without limiting healthy digital experiences. Download free on Google Play.">
-  <meta name="author" content="SafeScroll">
-  <meta name="theme-color" content="#0a0812">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeScroll — AI Adult Content Blocker for Instagram, TikTok, YouTube & More</title>
+    <meta name="description"
+        content="SafeScroll uses on-device AI to block adult content in real-time across Instagram, Facebook, TikTok, YouTube and every app — keeping children safe without limiting healthy digital experiences. Download free on Google Play.">
+    <meta name="author" content="SafeScroll">
+    <meta name="theme-color" content="#0a0812">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SafeScroll — AI Adult Content Blocker">
-  <meta property="og:description" content="Real-time AI filtering that blocks adult content on Instagram, TikTok, Facebook, YouTube and all apps. Keep children safe without limiting healthy digital experiences.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://safescroll.app">
-  <meta property="og:image" content="https://safescroll.app/phone-mockup.png">
+    <!-- Open Graph -->
+    <meta property="og:title" content="SafeScroll — AI Adult Content Blocker">
+    <meta property="og:description"
+        content="Real-time AI filtering that blocks adult content on Instagram, TikTok, Facebook, YouTube and all apps. Keep children safe without limiting healthy digital experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://safescroll.app">
+    <meta property="og:image" content="https://safescroll.app/phone-mockup.png">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SafeScroll — AI Adult Content Blocker">
-  <meta name="twitter:description" content="Block adult content across every app with on-device AI. Available now on Google Play.">
-  <meta name="twitter:image" content="https://safescroll.app/phone-mockup.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SafeScroll — AI Adult Content Blocker">
+    <meta name="twitter:description"
+        content="Block adult content across every app with on-device AI. Available now on Google Play.">
+    <meta name="twitter:image" content="https://safescroll.app/phone-mockup.png">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
      NAVBAR
 ════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <div class="logo-icon">
-        <i class="bi bi-shield-check"></i>
-      </div>
-      <span>SafeScroll</span>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center gap-1">
-        <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-        <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ios-waitlist">iOS Waitlist</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-        <li class="nav-item ms-2">
-          <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-             target="_blank" rel="noopener" id="nav-cta-btn"
-             class="btn btn-primary-violet btn-sm px-4 py-2">
-            <i class="bi bi-google-play me-2"></i>
-            <span>Get the App</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-<section class="hero-section" id="hero">
-  <!-- Background orbs -->
-  <div class="bg-glow-orb orb-1"></div>
-  <div class="bg-glow-orb orb-2"></div>
-  <div class="bg-glow-orb orb-3"></div>
-
-  <div class="container py-5">
-    <div class="row align-items-center g-5">
-
-      <!-- Left: Copy -->
-      <div class="col-lg-6 fade-in-up">
-        <div class="hero-eyebrow">
-          <span class="dot"></span>
-          AI-Powered · On-Device · Free
-        </div>
-
-        <h1 class="hero-title">
-          Keep kids safe from
-          <span class="text-gradient">adult content</span>
-          on every app
-        </h1>
-
-        <p class="hero-subtitle">
-          SafeScroll's AI works inside Instagram, TikTok, Facebook, YouTube
-          and every other app — blocking explicit content in real-time, on-device,
-          without invading your family's privacy.
-        </p>
-
-        <!-- Platform pills -->
-        <div class="platform-pills mb-4">
-          <span class="platform-pill"><i class="bi bi-instagram text-danger"></i> Instagram</span>
-          <span class="platform-pill"><i class="bi bi-tiktok"></i> TikTok</span>
-          <span class="platform-pill"><i class="bi bi-facebook text-primary"></i> Facebook</span>
-          <span class="platform-pill"><i class="bi bi-youtube text-danger"></i> YouTube</span>
-          <span class="platform-pill"><i class="bi bi-plus-circle"></i> All apps</span>
-        </div>
-
-        <!-- CTA buttons -->
-        <div class="hero-cta-group">
-          <!-- Android – primary -->
-          <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-             target="_blank" rel="noopener" id="hero-android-btn" class="store-badge">
-            <i class="bi bi-google-play store-badge-icon" style="color:#34d399;"></i>
-            <div class="store-badge-text">
-              <span class="store-badge-sub">Available now on</span>
-              <span class="store-badge-name">Google Play</span>
-            </div>
-          </a>
-
-          <!-- iOS – waitlist -->
-          <a href="#ios-waitlist" id="hero-ios-btn" class="store-badge ios-badge">
-            <i class="bi bi-apple store-badge-icon" style="color:#c4b5fd;"></i>
-            <div class="store-badge-text">
-              <span class="store-badge-sub">iOS — Join the</span>
-              <span class="store-badge-name">Early Access List</span>
-            </div>
-          </a>
-        </div>
-
-        <!-- Trust badges -->
-        <div class="hero-trust-row">
-          <span class="trust-badge"><i class="bi bi-lock-fill"></i> On-device · No data sent</span>
-          <span class="trust-badge"><i class="bi bi-shield-check-fill"></i> 98% accuracy</span>
-          <span class="trust-badge"><i class="bi bi-clock-fill"></i> 24/7 protection</span>
-        </div>
-      </div>
-
-      <!-- Right: Phone mockup -->
-      <div class="col-lg-6 fade-in-up" style="transition-delay:0.2s;">
-        <div class="hero-image-wrapper">
-          <div class="hero-phone-glow"></div>
-          <img src="phone-mockup.png" alt="SafeScroll AI blocking adult content on Instagram" class="hero-phone-img" fetchpriority="high">
-
-          <!-- Floating badges -->
-          <div class="hero-float-badge badge-top">
-            <span class="badge-dot-green"></span>
-            AI Shield Active
-          </div>
-          <div class="hero-float-badge badge-mid">
-            <i class="bi bi-shield-x" style="color:#f87171;"></i>
-            Adult Content Blocked
-          </div>
-          <div class="hero-float-badge badge-bottom">
-            <span class="badge-dot-violet"></span>
-            12 Platforms Protected
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     STATS STRIP
-════════════════════════════════════════════ -->
-<div class="stats-strip">
-  <div class="container">
-    <div class="row align-items-center text-center g-3">
-      <div class="col-6 col-md-3 stat-item fade-in-up">
-        <span class="stat-number" data-counter="98" data-suffix="%">0%</span>
-        <span class="stat-label">Detection Accuracy</span>
-      </div>
-      <div class="col d-none d-md-flex justify-content-center"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.1s;">
-        <span class="stat-number" data-counter="12" data-suffix="+">0+</span>
-        <span class="stat-label">Platforms Covered</span>
-      </div>
-      <div class="col d-none d-md-flex justify-content-center"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.2s;">
-        <span class="stat-number">24/7</span>
-        <span class="stat-label">Always-On Protection</span>
-      </div>
-      <div class="col d-none d-md-flex justify-content-center"><div class="stat-divider"></div></div>
-      <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.3s;">
-        <span class="stat-number">0KB</span>
-        <span class="stat-label">Data Leaves Device</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════
-     PROBLEM SECTION
-════════════════════════════════════════════ -->
-<section class="section-dark py-5" id="problem">
-  <div class="container py-4">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">The Reality</p>
-      <h2 class="section-title">The Growing Crisis Parents Face</h2>
-      <p class="section-desc">
-        Traditional blockers are powerless inside social media apps — exactly where kids spend most of their time online.
-      </p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-sm-6 col-lg-3 fade-in-up">
-        <div class="glass-card problem-card">
-          <div class="card-icon-wrap card-icon-red mb-3">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-          </div>
-          <div class="problem-stat-highlight">1 in 3</div>
-          <h5 class="fw-bold mb-2">Early Exposure</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">Children encounter adult content before age 13, causing lasting psychological impact.</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.1s;">
-        <div class="glass-card problem-card">
-          <div class="card-icon-wrap card-icon-red mb-3">
-            <i class="bi bi-phone-fill"></i>
-          </div>
-          <div class="problem-stat-highlight">90%</div>
-          <h5 class="fw-bold mb-2">Social Media Gap</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">Of explicit content exposure happens inside apps that traditional blockers completely miss.</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.2s;">
-        <div class="glass-card problem-card">
-          <div class="card-icon-wrap card-icon-red mb-3">
-            <i class="bi bi-clock-history"></i>
-          </div>
-          <div class="problem-stat-highlight">6hrs</div>
-          <h5 class="fw-bold mb-2">Daily Screen Time</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">Average teen spends 6+ hours daily on social media — unprotected by existing tools.</p>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.3s;">
-        <div class="glass-card problem-card">
-          <div class="card-icon-wrap card-icon-red mb-3">
-            <i class="bi bi-graph-down-arrow"></i>
-          </div>
-          <div class="problem-stat-highlight">68%</div>
-          <h5 class="fw-bold mb-2">Behavioural Risk</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">Of adolescents show behavioural changes linked to unfiltered online content exposure.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Callout -->
-    <div class="glass-card mt-5 p-4 p-md-5 text-center fade-in-up" style="border-color:rgba(124,58,237,0.3);">
-      <i class="bi bi-quote" style="font-size:3rem; color:var(--violet-700);"></i>
-      <blockquote class="fs-5 fw-semibold mt-2 mb-3" style="color:var(--text-secondary);">
-        "Traditional NSFW blockers are obsolete in the age of social media. Kids need protection <em>inside</em> the apps they actually use."
-      </blockquote>
-      <p class="text-muted small mb-0">— Digital Safety Research Institute</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════════ -->
-<section class="section-surface py-5" id="how-it-works">
-  <div class="container py-4">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">Under the Hood</p>
-      <h2 class="section-title">How SafeScroll Works</h2>
-      <p class="section-desc">
-        Advanced on-device AI processes every frame of content before your child sees it — no cloud upload, no latency.
-      </p>
-    </div>
-
-    <div class="row g-4 mb-5">
-      <!-- Step 1 -->
-      <div class="col-md-6 col-lg-3 fade-in-up">
-        <div class="glass-card step-card">
-          <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="step-number-badge">1</div>
-            <div class="card-icon-wrap card-icon-violet">
-              <i class="bi bi-radar"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">Real-Time Scanning</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">
-            AI monitors social media feeds as content loads — scanning every image, video, and text in milliseconds.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.1s;">
-        <div class="glass-card step-card">
-          <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="step-number-badge">2</div>
-            <div class="card-icon-wrap card-icon-indigo">
-              <i class="bi bi-cpu-fill"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">AI Analysis</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">
-            Lightweight on-device ML model classifies content with 98% accuracy — entirely offline, zero data leakage.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.2s;">
-        <div class="glass-card step-card">
-          <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="step-number-badge">3</div>
-            <div class="card-icon-wrap card-icon-fuchsia">
-              <i class="bi bi-shield-x"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">Instant Blocking</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">
-            Harmful content is replaced by a safe placeholder before it ever reaches the screen — seamlessly.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.3s;">
-        <div class="glass-card step-card">
-          <div class="d-flex align-items-center gap-3 mb-4">
-            <div class="step-number-badge">4</div>
-            <div class="card-icon-wrap card-icon-green">
-              <i class="bi bi-bell-fill"></i>
-            </div>
-          </div>
-          <h5 class="fw-bold mb-2">Parent Alerts</h5>
-          <p class="text-muted mb-0" style="font-size:0.9rem;">
-            You get a real-time notification every time inappropriate content is detected and blocked.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature grid -->
-    <h3 class="text-center fw-bold mb-4 fade-in-up" style="font-size:1.3rem; color:var(--text-secondary);">
-      Advanced Technology Features
-    </h3>
-    <div class="feature-row fade-in-up">
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-violet" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-globe"></i>
-        </div>
-        <div>
-          <div class="perk-title">Multi-Platform Support</div>
-          <p class="perk-desc">Works on Instagram, Facebook, TikTok, YouTube, Twitter/X and all major apps.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-amber" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-lightning-fill"></i>
-        </div>
-        <div>
-          <div class="perk-title">Zero Latency</div>
-          <p class="perk-desc">Processes content instantly with no noticeable impact on browsing speed.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-green" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-lock-fill"></i>
-        </div>
-        <div>
-          <div class="perk-title">Privacy First</div>
-          <p class="perk-desc">All AI processing is on-device. No images or videos ever leave your phone.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-indigo" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-arrow-repeat"></i>
-        </div>
-        <div>
-          <div class="perk-title">Adaptive Learning</div>
-          <p class="perk-desc">AI model continuously improves accuracy through silent background updates.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-fuchsia" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-person-check-fill"></i>
-        </div>
-        <div>
-          <div class="perk-title">Age-Appropriate Levels</div>
-          <p class="perk-desc">Customisable filtering sensitivity based on your child's age and maturity.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="card-icon-wrap card-icon-violet" style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
-          <i class="bi bi-shield-shaded"></i>
-        </div>
-        <div>
-          <div class="perk-title">Sexting Detection</div>
-          <p class="perk-desc">Alerts parents when inappropriate text or image-based messaging is detected.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     PLATFORM SUPPORT
-════════════════════════════════════════════ -->
-<section class="section-dark py-5">
-  <div class="container py-2">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">Coverage</p>
-      <h2 class="section-title">Works Everywhere Your Kids Scroll</h2>
-    </div>
-    <div class="platform-grid fade-in-up">
-      <div class="platform-chip"><i class="bi bi-instagram text-danger"></i> Instagram</div>
-      <div class="platform-chip"><i class="bi bi-tiktok"></i> TikTok</div>
-      <div class="platform-chip"><i class="bi bi-facebook text-primary"></i> Facebook</div>
-      <div class="platform-chip"><i class="bi bi-youtube text-danger"></i> YouTube</div>
-      <div class="platform-chip"><i class="bi bi-twitter-x"></i> X / Twitter</div>
-      <div class="platform-chip"><i class="bi bi-snapchat text-warning"></i> Snapchat</div>
-      <div class="platform-chip"><i class="bi bi-reddit text-danger"></i> Reddit</div>
-      <div class="platform-chip"><i class="bi bi-discord text-primary"></i> Discord</div>
-      <div class="platform-chip"><i class="bi bi-telegram text-info"></i> Telegram</div>
-      <div class="platform-chip"><i class="bi bi-whatsapp text-success"></i> WhatsApp</div>
-      <div class="platform-chip"><i class="bi bi-browser-chrome"></i> Chrome Browser</div>
-      <div class="platform-chip"><i class="bi bi-plus-circle" style="color:var(--violet-400);"></i> And all other apps</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════
-     DOWNLOAD — ANDROID (Primary)
-════════════════════════════════════════════ -->
-<section class="download-section py-5" id="download">
-  <div class="bg-glow-orb orb-1"></div>
-  <div class="container py-4 position-relative" style="z-index:1;">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">Download Now</p>
-      <h2 class="section-title">Available Now on Android</h2>
-      <p class="section-desc">
-        SafeScroll is live on Google Play — free to download and start protecting your family today.
-      </p>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-lg-9 fade-in-up">
-        <div class="download-card">
-          <div class="row align-items-center g-4">
-            <div class="col-md-7">
-              <div class="download-platform-label">
-                <i class="bi bi-android2 me-1"></i> Android — Available Now
-              </div>
-              <h3 class="download-title">Get SafeScroll Free on Google Play</h3>
-              <p class="download-desc">
-                Install in seconds. SafeScroll activates in the background and immediately starts protecting your child across all installed apps — no router setup, no VPN, no subscription required.
-              </p>
-
-              <div class="d-flex flex-column flex-sm-row gap-3">
-                <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-                   target="_blank" rel="noopener" id="download-android-btn"
-                   class="btn download-btn-android btn-lg d-inline-flex align-items-center gap-2">
-                  <i class="bi bi-google-play fs-5"></i>
-                  <div class="text-start lh-sm">
-                    <div style="font-size:0.7rem;font-weight:500;opacity:0.85;">Download Free on</div>
-                    <div style="font-size:1rem;font-weight:800;">Google Play</div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="d-flex flex-wrap gap-4 mt-4">
-                <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> Free to download</div>
-                <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> No subscription</div>
-                <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> Works immediately</div>
-              </div>
-            </div>
-
-            <div class="col-md-5 text-center">
-              <div style="background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.2); border-radius:20px; padding:32px 24px;">
-                <div style="font-size:4rem; margin-bottom:12px;">
-                  <i class="bi bi-google-play" style="color:#34d399;"></i>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <div class="logo-icon">
+                    <i class="bi bi-shield-check"></i>
                 </div>
-                <div class="fw-bold mb-1" style="color:var(--text-primary); font-size:1.1rem;">Google Play Store</div>
-                <div class="text-muted small mb-3">com.safescroll.safescroll</div>
-                <div class="d-flex justify-content-center gap-1 mb-3">
-                  <i class="bi bi-star-fill text-warning small"></i>
-                  <i class="bi bi-star-fill text-warning small"></i>
-                  <i class="bi bi-star-fill text-warning small"></i>
-                  <i class="bi bi-star-fill text-warning small"></i>
-                  <i class="bi bi-star-fill text-warning small"></i>
-                </div>
-                <span class="badge bg-success px-3 py-2">
-                  <i class="bi bi-check-lg me-1"></i> Live on Play Store
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                <span>SafeScroll</span>
+            </a>
 
-
-<!-- ═══════════════════════════════════════════
-     iOS WAITLIST
-════════════════════════════════════════════ -->
-<section class="waitlist-section py-5" id="ios-waitlist">
-  <div class="bg-glow-orb orb-1"></div>
-  <div class="container py-4 position-relative" style="z-index:1;">
-
-    <div class="row align-items-center g-5">
-
-      <!-- Left: Perks -->
-      <div class="col-lg-5 fade-in-up">
-        <div class="waitlist-badge">
-          <i class="bi bi-apple"></i>
-          iOS — Under App Store Review
-        </div>
-
-        <h2 class="section-title mb-3">
-          iPhone users —<br>
-          <span class="text-gradient">be first in line</span>
-        </h2>
-
-        <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:2rem;">
-          Our iOS app is currently under Apple App Store review. Join the waitlist now and get exclusive early access the moment it launches — before anyone else.
-        </p>
-
-        <div class="waitlist-perks">
-          <div class="perk-item">
-            <div class="perk-icon"><i class="bi bi-lightning-fill"></i></div>
-            <div>
-              <div class="perk-title">Priority Early Access</div>
-              <p class="perk-desc">Be among the first to download the moment the iOS app goes live on the App Store.</p>
-            </div>
-          </div>
-
-          <div class="perk-item">
-            <div class="perk-icon"><i class="bi bi-bell-fill"></i></div>
-            <div>
-              <div class="perk-title">Instant Launch Notification</div>
-              <p class="perk-desc">We'll notify you via email and SMS the second SafeScroll for iOS is available.</p>
-            </div>
-          </div>
-
-          <div class="perk-item">
-            <div class="perk-icon"><i class="bi bi-gift-fill"></i></div>
-            <div>
-              <div class="perk-title">Exclusive Founding User Perks</div>
-              <p class="perk-desc">Early access members receive special benefits and have direct input on iOS features.</p>
-            </div>
-          </div>
-
-          <div class="perk-item">
-            <div class="perk-icon"><i class="bi bi-shield-lock-fill"></i></div>
-            <div>
-              <div class="perk-title">Your Data Stays Private</div>
-              <p class="perk-desc">We only use your contact info to notify you at launch. No spam, ever. Unsubscribe anytime.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Form -->
-      <div class="col-lg-7 fade-in-up" style="transition-delay:0.2s;">
-        <div class="waitlist-card">
-          <!-- Lock icon -->
-          <div class="waitlist-lock-icon">
-            <i class="bi bi-apple"></i>
-          </div>
-
-          <h3 class="text-center fw-bold mb-1" style="font-size:1.5rem;">Join the iOS Waitlist</h3>
-          <p class="text-center text-muted mb-4" style="font-size:0.9rem;">
-            <strong style="color:var(--violet-300);">Limited spots.</strong> Join now to secure your early access.
-          </p>
-
-          <!-- Counter badge -->
-          <div class="text-center mb-4">
-            <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(124,58,237,0.1); border:1px solid var(--border-glow); border-radius:var(--radius-full); padding:8px 20px;">
-              <div style="display:flex; gap:-4px;">
-                <span style="width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--bg-elevated);display:inline-block;"></span>
-                <span style="width:24px;height:24px;border-radius:50%;background:var(--accent-fuchsia);border:2px solid var(--bg-elevated);display:inline-block;margin-left:-8px;"></span>
-                <span style="width:24px;height:24px;border-radius:50%;background:var(--accent-indigo);border:2px solid var(--bg-elevated);display:inline-block;margin-left:-8px;"></span>
-              </div>
-              <span style="font-size:0.85rem; font-weight:600; color:var(--text-secondary);">
-                <span style="color:var(--violet-300);" id="waitlist-count">2,400+</span> people already waiting
-              </span>
-            </div>
-          </div>
-
-          <!-- Form -->
-          <form id="waitlistForm" class="waitlist-form" novalidate>
-            <!-- Email -->
-            <div class="mb-3">
-              <label for="waitlist-email" class="form-label">Email Address <span style="color:#f87171;">*</span></label>
-              <div class="input-group">
-                <span class="input-group-text" style="background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-right:none; color:var(--text-muted);">
-                  <i class="bi bi-envelope"></i>
-                </span>
-                <input type="email" class="form-control" id="waitlist-email"
-                       placeholder="you@example.com" required
-                       style="border-left:none;">
-              </div>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
-            </div>
-
-            <!-- Phone with country code -->
-            <div class="mb-4">
-              <label class="form-label">Phone Number <span style="color:#f87171;">*</span></label>
-              <div class="phone-input-group">
-                <div class="country-select">
-                  <select class="form-select" id="waitlist-country-code" required>
-                    <option value="+91">🇮🇳 +91 India</option>
-                    <option value="+1">🇺🇸 +1 USA</option>
-                    <option value="+1-ca">🇨🇦 +1 Canada</option>
-                    <option value="+44">🇬🇧 +44 UK</option>
-                    <option value="+61">🇦🇺 +61 Australia</option>
-                    <option value="+971">🇦🇪 +971 UAE</option>
-                    <option value="+65">🇸🇬 +65 Singapore</option>
-                    <option value="+60">🇲🇾 +60 Malaysia</option>
-                    <option value="+64">🇳🇿 +64 New Zealand</option>
-                    <option value="+27">🇿🇦 +27 South Africa</option>
-                    <option value="+49">🇩🇪 +49 Germany</option>
-                    <option value="+33">🇫🇷 +33 France</option>
-                    <option value="+39">🇮🇹 +39 Italy</option>
-                    <option value="+34">🇪🇸 +34 Spain</option>
-                    <option value="+31">🇳🇱 +31 Netherlands</option>
-                    <option value="+55">🇧🇷 +55 Brazil</option>
-                    <option value="+52">🇲🇽 +52 Mexico</option>
-                    <option value="+81">🇯🇵 +81 Japan</option>
-                    <option value="+82">🇰🇷 +82 South Korea</option>
-                    <option value="+86">🇨🇳 +86 China</option>
-                    <option value="+92">🇵🇰 +92 Pakistan</option>
-                    <option value="+880">🇧🇩 +880 Bangladesh</option>
-                    <option value="+94">🇱🇰 +94 Sri Lanka</option>
-                    <option value="+977">🇳🇵 +977 Nepal</option>
-                    <option value="+62">🇮🇩 +62 Indonesia</option>
-                    <option value="+66">🇹🇭 +66 Thailand</option>
-                    <option value="+63">🇵🇭 +63 Philippines</option>
-                    <option value="+20">🇪🇬 +20 Egypt</option>
-                    <option value="+234">🇳🇬 +234 Nigeria</option>
-                    <option value="+254">🇰🇪 +254 Kenya</option>
-                  </select>
-                </div>
-                <input type="tel" class="form-control phone-number" id="waitlist-phone"
-                       placeholder="9876543210" required
-                       pattern="[0-9]{6,15}">
-              </div>
-              <div class="invalid-feedback">Please enter a valid phone number.</div>
-            </div>
-
-            <!-- Submit -->
-            <button type="submit" class="btn btn-waitlist-submit" id="waitlist-submit-btn">
-              <i class="bi bi-apple me-2"></i>
-              Reserve My Spot — It's Free
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Security note -->
-            <div class="security-note">
-              <i class="bi bi-lock-fill"></i>
-              <span>Your information is encrypted and never shared with third parties.</span>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ios-waitlist">iOS Waitlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item ms-2">
+                        <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                            target="_blank" rel="noopener" id="nav-cta-btn"
+                            class="btn btn-primary-violet btn-sm px-4 py-2">
+                            <i class="bi bi-google-play me-2"></i>
+                            <span>Get the App</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </form>
-
-          <!-- Success state -->
-          <div class="waitlist-success" id="waitlistSuccess">
-            <div class="success-icon">
-              <i class="bi bi-check-lg"></i>
-            </div>
-            <h4 class="fw-bold mb-2">You're on the list! 🎉</h4>
-            <p class="text-muted mb-3">
-              We'll notify you the moment SafeScroll for iOS launches. Keep an eye on your email and phone.
-            </p>
-            <div style="background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.25); border-radius:var(--radius-md); padding:16px 20px; font-size:0.85rem; color:var(--text-secondary);">
-              <i class="bi bi-shield-check text-success me-2"></i>
-              <strong>What happens next:</strong> You'll receive a confirmation message shortly. When iOS launches, you get priority download access before the general public.
-            </div>
-          </div>
         </div>
+    </nav>
 
-        <!-- Social proof below card -->
-        <div class="text-center mt-3">
-          <p class="text-muted small mb-0">
-            <i class="bi bi-shield-check-fill text-success me-1"></i>
-            No spam. No payment required. Unsubscribe anytime.
-          </p>
+
+    <!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+    <section class="hero-section" id="hero">
+        <!-- Background orbs -->
+        <div class="bg-glow-orb orb-1"></div>
+        <div class="bg-glow-orb orb-2"></div>
+        <div class="bg-glow-orb orb-3"></div>
+
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+
+                <!-- Left: Copy -->
+                <div class="col-lg-6 fade-in-up">
+                    <div class="hero-eyebrow">
+                        <span class="dot"></span>
+                        AI-Powered · On-Device · Free
+                    </div>
+
+                    <h1 class="hero-title">
+                        Keep kids safe from
+                        <span class="text-gradient">adult content</span>
+                        on every app
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        SafeScroll's AI works inside Instagram, TikTok, Facebook, YouTube
+                        and every other app — blocking explicit content in real-time, on-device,
+                        without invading your family's privacy.
+                    </p>
+
+                    <!-- Platform pills -->
+                    <div class="platform-pills mb-4">
+                        <span class="platform-pill"><i class="bi bi-instagram text-danger"></i> Instagram</span>
+                        <span class="platform-pill"><i class="bi bi-tiktok"></i> TikTok</span>
+                        <span class="platform-pill"><i class="bi bi-facebook text-primary"></i> Facebook</span>
+                        <span class="platform-pill"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+                        <span class="platform-pill"><i class="bi bi-plus-circle"></i> All apps</span>
+                    </div>
+
+                    <!-- CTA buttons -->
+                    <div class="hero-cta-group">
+                        <!-- Android – primary -->
+                        <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                            target="_blank" rel="noopener" id="hero-android-btn" class="store-badge">
+                            <i class="bi bi-google-play store-badge-icon" style="color:#34d399;"></i>
+                            <div class="store-badge-text">
+                                <span class="store-badge-sub">Available now on</span>
+                                <span class="store-badge-name">Google Play</span>
+                            </div>
+                        </a>
+
+                        <!-- iOS – waitlist -->
+                        <a href="#ios-waitlist" id="hero-ios-btn" class="store-badge ios-badge">
+                            <i class="bi bi-apple store-badge-icon" style="color:#c4b5fd;"></i>
+                            <div class="store-badge-text">
+                                <span class="store-badge-sub">iOS — Join the</span>
+                                <span class="store-badge-name">Early Access List</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Trust badges -->
+                    <div class="hero-trust-row">
+                        <span class="trust-badge"><i class="bi bi-lock-fill"></i> On-device · No data sent</span>
+                        <span class="trust-badge"><i class="bi bi-shield-check-fill"></i> 98% accuracy</span>
+                        <span class="trust-badge"><i class="bi bi-clock-fill"></i> 24/7 protection</span>
+                    </div>
+                </div>
+
+                <!-- Right: Phone mockup -->
+                <div class="col-lg-6 fade-in-up" style="transition-delay:0.2s;">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-phone-glow"></div>
+                        <img src="phone-mockup.png" alt="SafeScroll AI blocking adult content on Instagram"
+                            class="hero-phone-img" fetchpriority="high">
+
+                        <!-- Floating badges -->
+                        <div class="hero-float-badge badge-top">
+                            <span class="badge-dot-green"></span>
+                            AI Shield Active
+                        </div>
+                        <div class="hero-float-badge badge-mid">
+                            <i class="bi bi-shield-x" style="color:#f87171;"></i>
+                            Adult Content Blocked
+                        </div>
+                        <div class="hero-float-badge badge-bottom">
+                            <span class="badge-dot-violet"></span>
+                            12 Platforms Protected
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+    </section>
 
+
+    <!-- ═══════════════════════════════════════════
+     STATS STRIP
+════════════════════════════════════════════ -->
+    <div class="stats-strip">
+        <div class="container">
+            <div class="row align-items-center text-center g-3">
+                <div class="col-6 col-md-3 stat-item fade-in-up">
+                    <span class="stat-number" data-counter="98" data-suffix="%">0%</span>
+                    <span class="stat-label">Detection Accuracy</span>
+                </div>
+                <div class="col d-none d-md-flex justify-content-center">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.1s;">
+                    <span class="stat-number" data-counter="12" data-suffix="+">0+</span>
+                    <span class="stat-label">Platforms Covered</span>
+                </div>
+                <div class="col d-none d-md-flex justify-content-center">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.2s;">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Always-On Protection</span>
+                </div>
+                <div class="col d-none d-md-flex justify-content-center">
+                    <div class="stat-divider"></div>
+                </div>
+                <div class="col-6 col-md-3 stat-item fade-in-up" style="transition-delay:0.3s;">
+                    <span class="stat-number">0KB</span>
+                    <span class="stat-label">Data Leaves Device</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
 
-<!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
+     PROBLEM SECTION
+════════════════════════════════════════════ -->
+    <section class="section-dark py-5" id="problem">
+        <div class="container py-4">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">The Reality</p>
+                <h2 class="section-title">The Growing Crisis Parents Face</h2>
+                <p class="section-desc">
+                    Traditional blockers are powerless inside social media apps — exactly where kids spend most of their
+                    time online.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-3 fade-in-up">
+                    <div class="glass-card problem-card">
+                        <div class="card-icon-wrap card-icon-red mb-3">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        </div>
+                        <div class="problem-stat-highlight">1 in 3</div>
+                        <h5 class="fw-bold mb-2">Early Exposure</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">Children encounter adult content before age
+                            13, causing lasting psychological impact.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.1s;">
+                    <div class="glass-card problem-card">
+                        <div class="card-icon-wrap card-icon-red mb-3">
+                            <i class="bi bi-phone-fill"></i>
+                        </div>
+                        <div class="problem-stat-highlight">90%</div>
+                        <h5 class="fw-bold mb-2">Social Media Gap</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">Of explicit content exposure happens inside
+                            apps that traditional blockers completely miss.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.2s;">
+                    <div class="glass-card problem-card">
+                        <div class="card-icon-wrap card-icon-red mb-3">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="problem-stat-highlight">6hrs</div>
+                        <h5 class="fw-bold mb-2">Daily Screen Time</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">Average teen spends 6+ hours daily on
+                            social media — unprotected by existing tools.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-3 fade-in-up" style="transition-delay:0.3s;">
+                    <div class="glass-card problem-card">
+                        <div class="card-icon-wrap card-icon-red mb-3">
+                            <i class="bi bi-graph-down-arrow"></i>
+                        </div>
+                        <div class="problem-stat-highlight">68%</div>
+                        <h5 class="fw-bold mb-2">Behavioural Risk</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">Of adolescents show behavioural changes
+                            linked to unfiltered online content exposure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Callout -->
+            <div class="glass-card mt-5 p-4 p-md-5 text-center fade-in-up" style="border-color:rgba(124,58,237,0.3);">
+                <i class="bi bi-quote" style="font-size:3rem; color:var(--violet-700);"></i>
+                <blockquote class="fs-5 fw-semibold mt-2 mb-3" style="color:var(--text-secondary);">
+                    "Traditional NSFW blockers are obsolete in the age of social media. Kids need protection
+                    <em>inside</em> the apps they actually use."
+                </blockquote>
+                <p class="text-muted small mb-0">— Digital Safety Research Institute</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════ -->
+    <section class="section-surface py-5" id="how-it-works">
+        <div class="container py-4">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">Under the Hood</p>
+                <h2 class="section-title">How SafeScroll Works</h2>
+                <p class="section-desc">
+                    Advanced on-device AI processes every frame of content before your child sees it — no cloud upload,
+                    no latency.
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- Step 1 -->
+                <div class="col-md-6 col-lg-3 fade-in-up">
+                    <div class="glass-card step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-number-badge">1</div>
+                            <div class="card-icon-wrap card-icon-violet">
+                                <i class="bi bi-radar"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Real-Time Scanning</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">
+                            AI monitors social media feeds as content loads — scanning every image, video, and text in
+                            milliseconds.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.1s;">
+                    <div class="glass-card step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-number-badge">2</div>
+                            <div class="card-icon-wrap card-icon-indigo">
+                                <i class="bi bi-cpu-fill"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">AI Analysis</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">
+                            Lightweight on-device ML model classifies content with 98% accuracy — entirely offline, zero
+                            data leakage.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.2s;">
+                    <div class="glass-card step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-number-badge">3</div>
+                            <div class="card-icon-wrap card-icon-fuchsia">
+                                <i class="bi bi-shield-x"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Instant Blocking</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">
+                            Harmful content is replaced by a safe placeholder before it ever reaches the screen —
+                            seamlessly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="col-md-6 col-lg-3 fade-in-up" style="transition-delay:0.3s;">
+                    <div class="glass-card step-card">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="step-number-badge">4</div>
+                            <div class="card-icon-wrap card-icon-green">
+                                <i class="bi bi-bell-fill"></i>
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-2">Parent Alerts</h5>
+                        <p class="text-muted mb-0" style="font-size:0.9rem;">
+                            You get a real-time notification every time inappropriate content is detected and blocked.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature grid -->
+            <h3 class="text-center fw-bold mb-4 fade-in-up" style="font-size:1.3rem; color:var(--text-secondary);">
+                Advanced Technology Features
+            </h3>
+            <div class="feature-row fade-in-up">
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-violet"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Multi-Platform Support</div>
+                        <p class="perk-desc">Works on Instagram, Facebook, TikTok, YouTube, Twitter/X and all major
+                            apps.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-amber"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-lightning-fill"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Zero Latency</div>
+                        <p class="perk-desc">Processes content instantly with no noticeable impact on browsing speed.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-green"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-lock-fill"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Privacy First</div>
+                        <p class="perk-desc">All AI processing is on-device. No images or videos ever leave your phone.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-indigo"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Adaptive Learning</div>
+                        <p class="perk-desc">AI model continuously improves accuracy through silent background updates.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-fuchsia"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Age-Appropriate Levels</div>
+                        <p class="perk-desc">Customisable filtering sensitivity based on your child's age and maturity.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="card-icon-wrap card-icon-violet"
+                        style="width:44px;height:44px;font-size:1.1rem;flex-shrink:0;">
+                        <i class="bi bi-shield-shaded"></i>
+                    </div>
+                    <div>
+                        <div class="perk-title">Sexting Detection</div>
+                        <p class="perk-desc">Alerts parents when inappropriate text or image-based messaging is
+                            detected.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     PLATFORM SUPPORT
+════════════════════════════════════════════ -->
+    <section class="section-dark py-5">
+        <div class="container py-2">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">Coverage</p>
+                <h2 class="section-title">Works Everywhere Your Kids Scroll</h2>
+            </div>
+            <div class="platform-grid fade-in-up">
+                <div class="platform-chip"><i class="bi bi-instagram text-danger"></i> Instagram</div>
+                <div class="platform-chip"><i class="bi bi-tiktok"></i> TikTok</div>
+                <div class="platform-chip"><i class="bi bi-facebook text-primary"></i> Facebook</div>
+                <div class="platform-chip"><i class="bi bi-youtube text-danger"></i> YouTube</div>
+                <div class="platform-chip"><i class="bi bi-twitter-x"></i> X / Twitter</div>
+                <div class="platform-chip"><i class="bi bi-snapchat text-warning"></i> Snapchat</div>
+                <div class="platform-chip"><i class="bi bi-reddit text-danger"></i> Reddit</div>
+                <div class="platform-chip"><i class="bi bi-discord text-primary"></i> Discord</div>
+                <div class="platform-chip"><i class="bi bi-telegram text-info"></i> Telegram</div>
+                <div class="platform-chip"><i class="bi bi-whatsapp text-success"></i> WhatsApp</div>
+                <div class="platform-chip"><i class="bi bi-browser-chrome"></i> Chrome Browser</div>
+                <div class="platform-chip"><i class="bi bi-plus-circle" style="color:var(--violet-400);"></i> And all
+                    other apps</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     DOWNLOAD — ANDROID (Primary)
+════════════════════════════════════════════ -->
+    <section class="download-section py-5" id="download">
+        <div class="bg-glow-orb orb-1"></div>
+        <div class="container py-4 position-relative" style="z-index:1;">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">Download Now</p>
+                <h2 class="section-title">Available Now on Android</h2>
+                <p class="section-desc">
+                    SafeScroll is live on Google Play — free to download and start protecting your family today.
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9 fade-in-up">
+                    <div class="download-card">
+                        <div class="row align-items-center g-4">
+                            <div class="col-md-7">
+                                <div class="download-platform-label">
+                                    <i class="bi bi-android2 me-1"></i> Android — Available Now
+                                </div>
+                                <h3 class="download-title">Get SafeScroll Free on Google Play</h3>
+                                <p class="download-desc">
+                                    Install in seconds. SafeScroll activates in the background and immediately starts
+                                    protecting your child across all installed apps — no router setup, no VPN, no
+                                    subscription required.
+                                </p>
+
+                                <div class="d-flex flex-column flex-sm-row gap-3">
+                                    <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                                        target="_blank" rel="noopener" id="download-android-btn"
+                                        class="btn download-btn-android btn-lg d-inline-flex align-items-center gap-2">
+                                        <i class="bi bi-google-play fs-5"></i>
+                                        <div class="text-start lh-sm">
+                                            <div style="font-size:0.7rem;font-weight:500;opacity:0.85;">Download Free on
+                                            </div>
+                                            <div style="font-size:1rem;font-weight:800;">Google Play</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-4 mt-4">
+                                    <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> Free
+                                        to download</div>
+                                    <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> No
+                                        subscription</div>
+                                    <div class="trust-badge"><i class="bi bi-check-circle-fill text-success"></i> Works
+                                        immediately</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 text-center">
+                                <div
+                                    style="background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.2); border-radius:20px; padding:32px 24px;">
+                                    <div style="font-size:4rem; margin-bottom:12px;">
+                                        <i class="bi bi-google-play" style="color:#34d399;"></i>
+                                    </div>
+                                    <div class="fw-bold mb-1" style="color:var(--text-primary); font-size:1.1rem;">
+                                        Google Play Store</div>
+                                    <div class="text-muted small mb-3">com.safescroll.safescroll</div>
+                                    <div class="d-flex justify-content-center gap-1 mb-3">
+                                        <i class="bi bi-star-fill text-warning small"></i>
+                                        <i class="bi bi-star-fill text-warning small"></i>
+                                        <i class="bi bi-star-fill text-warning small"></i>
+                                        <i class="bi bi-star-fill text-warning small"></i>
+                                        <i class="bi bi-star-fill text-warning small"></i>
+                                    </div>
+                                    <span class="badge bg-success px-3 py-2">
+                                        <i class="bi bi-check-lg me-1"></i> Live on Play Store
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     iOS WAITLIST
+════════════════════════════════════════════ -->
+    <section class="waitlist-section py-5" id="ios-waitlist">
+        <div class="bg-glow-orb orb-1"></div>
+        <div class="container py-4 position-relative" style="z-index:1;">
+
+            <div class="row align-items-center g-5">
+
+                <!-- Left: Perks -->
+                <div class="col-lg-5 fade-in-up">
+                    <div class="waitlist-badge">
+                        <i class="bi bi-apple"></i>
+                        iOS Coming Soon
+                    </div>
+
+                    <h2 class="section-title mb-3">
+                        iPhone users —<br>
+                        <span class="text-gradient">Secure early access</span>
+                    </h2>
+
+                    <p style="color:var(--text-secondary); line-height:1.6; margin-bottom:2rem; font-size:1.05rem;">
+                        SafeScroll for iOS is currently under App Store review. Join the early access waitlist to secure
+                        your spot.
+                    </p>
+
+                    <div class="waitlist-perks">
+                        <div class="perk-item">
+                            <div class="perk-icon"><i class="bi bi-lightning-fill"></i></div>
+                            <div>
+                                <div class="perk-title">Instant Launch Alert</div>
+                                <p class="perk-desc">Get notified via email and SMS the exact second the App Store
+                                    download goes live.</p>
+                            </div>
+                        </div>
+
+                        <div class="perk-item">
+                            <div class="perk-icon"><i class="bi bi-gift-fill"></i></div>
+                            <div>
+                                <div class="perk-title">Founding Member Perks</div>
+                                <p class="perk-desc">Early access members receive premium parental control tools free
+                                    for 3 months.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="col-lg-7 fade-in-up" style="transition-delay:0.2s;">
+                    <div class="waitlist-card">
+                        <!-- Lock icon -->
+                        <div class="waitlist-lock-icon">
+                            <i class="bi bi-apple"></i>
+                        </div>
+
+                        <h3 class="text-center fw-bold mb-1" style="font-size:1.5rem;">Join the iOS Waitlist</h3>
+                        <p class="text-center text-muted mb-4" style="font-size:0.9rem;">
+                            <strong style="color:var(--violet-300);">Limited spots.</strong> Join now to secure your
+                            early access.
+                        </p>
+
+                        <!-- Counter badge -->
+                        <div class="text-center mb-4">
+                            <div
+                                style="display:inline-flex; align-items:center; gap:10px; background:rgba(124,58,237,0.1); border:1px solid var(--border-glow); border-radius:var(--radius-full); padding:8px 20px;">
+                                <div style="display:flex; gap:-4px;">
+                                    <span
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--bg-elevated);display:inline-block;"></span>
+                                    <span
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--accent-fuchsia);border:2px solid var(--bg-elevated);display:inline-block;margin-left:-8px;"></span>
+                                    <span
+                                        style="width:24px;height:24px;border-radius:50%;background:var(--accent-indigo);border:2px solid var(--bg-elevated);display:inline-block;margin-left:-8px;"></span>
+                                </div>
+                                <span style="font-size:0.85rem; font-weight:600; color:var(--text-secondary);">
+                                    <span style="color:var(--violet-300);" id="waitlist-count">2,400+</span> people
+                                    already waiting
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="waitlistForm" class="waitlist-form" novalidate>
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="waitlist-email" class="form-label">Email Address <span
+                                        style="color:#f87171;">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"
+                                        style="background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); border-right:none; color:var(--text-muted);">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="waitlist-email"
+                                        placeholder="you@example.com" required style="border-left:none;">
+                                </div>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+
+                            <!-- Phone with country code -->
+                            <div class="mb-4">
+                                <label class="form-label">Phone Number <span style="color:#f87171;">*</span></label>
+                                <div class="phone-input-group">
+                                    <div class="country-select">
+                                        <select class="form-select" id="waitlist-country-code" required>
+                                            <option value="+91">🇮🇳 +91 India</option>
+                                            <option value="+1">🇺🇸 +1 USA</option>
+                                            <option value="+1-ca">🇨🇦 +1 Canada</option>
+                                            <option value="+44">🇬🇧 +44 UK</option>
+                                            <option value="+61">🇦🇺 +61 Australia</option>
+                                            <option value="+971">🇦🇪 +971 UAE</option>
+                                            <option value="+65">🇸🇬 +65 Singapore</option>
+                                            <option value="+60">🇲🇾 +60 Malaysia</option>
+                                            <option value="+64">🇳🇿 +64 New Zealand</option>
+                                            <option value="+27">🇿🇦 +27 South Africa</option>
+                                            <option value="+49">🇩🇪 +49 Germany</option>
+                                            <option value="+33">🇫🇷 +33 France</option>
+                                            <option value="+39">🇮🇹 +39 Italy</option>
+                                            <option value="+34">🇪🇸 +34 Spain</option>
+                                            <option value="+31">🇳🇱 +31 Netherlands</option>
+                                            <option value="+55">🇧🇷 +55 Brazil</option>
+                                            <option value="+52">🇲🇽 +52 Mexico</option>
+                                            <option value="+81">🇯🇵 +81 Japan</option>
+                                            <option value="+82">🇰🇷 +82 South Korea</option>
+                                            <option value="+86">🇨🇳 +86 China</option>
+                                            <option value="+92">🇵🇰 +92 Pakistan</option>
+                                            <option value="+880">🇧🇩 +880 Bangladesh</option>
+                                            <option value="+94">🇱🇰 +94 Sri Lanka</option>
+                                            <option value="+977">🇳🇵 +977 Nepal</option>
+                                            <option value="+62">🇮🇩 +62 Indonesia</option>
+                                            <option value="+66">🇹🇭 +66 Thailand</option>
+                                            <option value="+63">🇵🇭 +63 Philippines</option>
+                                            <option value="+20">🇪🇬 +20 Egypt</option>
+                                            <option value="+234">🇳🇬 +234 Nigeria</option>
+                                            <option value="+254">🇰🇪 +254 Kenya</option>
+                                            <option value="other">🌍 Other (Include Country Code)</option>
+                                        </select>
+                                    </div>
+                                    <input type="tel" class="form-control phone-number" id="waitlist-phone"
+                                        placeholder="9876543210" required pattern="[0-9]{6,15}">
+                                </div>
+                                <div class="invalid-feedback">Please enter a valid phone number.</div>
+                            </div>
+
+                            <!-- Submit -->
+                            <button type="submit" class="btn btn-waitlist-submit" id="waitlist-submit-btn">
+                                <i class="bi bi-apple me-2"></i>
+                                Reserve My Spot — It's Free
+                            </button>
+
+                            <!-- Security note -->
+                            <div class="security-note">
+                                <i class="bi bi-lock-fill"></i>
+                                <span>Your information is encrypted and never shared with third parties.</span>
+                            </div>
+                        </form>
+
+                        <!-- Success state -->
+                        <div class="waitlist-success" id="waitlistSuccess">
+                            <div class="success-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <h4 class="fw-bold mb-2">You're on the list! 🎉</h4>
+                            <p class="text-muted mb-3">
+                                We'll notify you the moment SafeScroll for iOS launches. Keep an eye on your email and
+                                phone.
+                            </p>
+                            <div
+                                style="background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.25); border-radius:var(--radius-md); padding:16px 20px; font-size:0.85rem; color:var(--text-secondary);">
+                                <i class="bi bi-shield-check text-success me-2"></i>
+                                <strong>What happens next:</strong> You'll receive a confirmation message shortly. When
+                                iOS launches, you get priority download access before the general public.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social proof below card -->
+                    <div class="text-center mt-3">
+                        <p class="text-muted small mb-0">
+                            <i class="bi bi-shield-check-fill text-success me-1"></i>
+                            No spam. No payment required. Unsubscribe anytime.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
      CONTACT / SUPPORT
 ════════════════════════════════════════════ -->
-<section class="section-dark py-5" id="contact">
-  <div class="container py-4">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">Support</p>
-      <h2 class="section-title">We're Here to Help</h2>
-      <p class="section-desc">
-        Questions about protecting your family? Our team is ready to help you get started.
-      </p>
-    </div>
+    <section class="section-dark py-5" id="contact">
+        <div class="container py-4">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">Support</p>
+                <h2 class="section-title">We're Here to Help</h2>
+                <p class="section-desc">
+                    Questions about protecting your family? Our team is ready to help you get started.
+                </p>
+            </div>
 
-    <div class="row justify-content-center g-4">
-      <div class="col-md-5 fade-in-up">
-        <div class="glass-card contact-card">
-          <div class="card-icon-wrap card-icon-green mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem;">
-            <i class="bi bi-whatsapp"></i>
-          </div>
-          <h4 class="fw-bold mb-2">WhatsApp Support</h4>
-          <p class="text-muted mb-4" style="font-size:0.9rem;">Chat directly with our team for instant help, setup guidance, and troubleshooting.</p>
-          <a href="https://wa.me/6383449908?text=Hi%21%20I%27m%20interested%20in%20SafeScroll%20and%20would%20like%20to%20know%20more."
-             target="_blank" rel="noopener" id="whatsapp-btn"
-             class="btn btn-whatsapp">
-            <i class="bi bi-whatsapp me-2"></i> Chat on WhatsApp
-          </a>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-5 fade-in-up">
+                    <div class="glass-card contact-card">
+                        <div class="card-icon-wrap card-icon-green mx-auto mb-3"
+                            style="width:64px;height:64px;font-size:1.8rem;">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2">WhatsApp Support</h4>
+                        <p class="text-muted mb-4" style="font-size:0.9rem;">Chat directly with our team for instant
+                            help, setup guidance, and troubleshooting.</p>
+                        <a href="https://wa.me/6383449908?text=Hi%21%20I%27m%20interested%20in%20SafeScroll%20and%20would%20like%20to%20know%20more."
+                            target="_blank" rel="noopener" id="whatsapp-btn" class="btn btn-whatsapp">
+                            <i class="bi bi-whatsapp me-2"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-5 fade-in-up" style="transition-delay:0.1s;">
+                    <div class="glass-card contact-card">
+                        <div class="card-icon-wrap card-icon-green mx-auto mb-3"
+                            style="width:64px;height:64px;font-size:1.8rem; background:rgba(52,211,153,0.12); color:#34d399;">
+                            <i class="bi bi-google-play"></i>
+                        </div>
+                        <h4 class="fw-bold mb-2">Download for Android</h4>
+                        <p class="text-muted mb-4" style="font-size:0.9rem;">Install SafeScroll on any Android device
+                            and start protecting your family right away for free.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                            target="_blank" rel="noopener" id="contact-android-btn" class="btn btn-primary-violet">
+                            <i class="bi bi-google-play me-2"></i>
+                            <span>Open Google Play</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-5 fade-in-up" style="transition-delay:0.1s;">
-        <div class="glass-card contact-card">
-          <div class="card-icon-wrap card-icon-green mx-auto mb-3" style="width:64px;height:64px;font-size:1.8rem; background:rgba(52,211,153,0.12); color:#34d399;">
-            <i class="bi bi-google-play"></i>
-          </div>
-          <h4 class="fw-bold mb-2">Download for Android</h4>
-          <p class="text-muted mb-4" style="font-size:0.9rem;">Install SafeScroll on any Android device and start protecting your family right away for free.</p>
-          <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-             target="_blank" rel="noopener" id="contact-android-btn"
-             class="btn btn-primary-violet">
-            <i class="bi bi-google-play me-2"></i>
-            <span>Open Google Play</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
      FAQ
 ════════════════════════════════════════════ -->
-<section class="section-surface py-5" id="faq">
-  <div class="container py-4">
-    <div class="text-center mb-5 fade-in-up">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-lg-8 fade-in-up">
-        <div class="accordion" id="faqAccordion">
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" id="faq-btn-1">
-                How does SafeScroll work inside social media apps?
-              </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                SafeScroll uses Android's Accessibility Service to read on-screen content in real time. Our on-device AI analyses each image, video, and piece of text as it loads — and immediately replaces anything harmful with a safe placeholder. Everything happens on your phone; nothing is sent to our servers.
-              </div>
+    <section class="section-surface py-5" id="faq">
+        <div class="container py-4">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="section-eyebrow">FAQ</p>
+                <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
-          </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" id="faq-btn-2">
-                Who is SafeScroll designed for?
-              </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                <strong style="color:var(--violet-300);">Parental Control version:</strong> For parents monitoring their child's device — includes social media filtering, sexting detection, and inappropriate image alerts sent directly to the parent.<br><br>
-                <strong style="color:var(--violet-300);">Adult Self-Control version:</strong> For individuals who want to reduce their own exposure to adult content or addictive short-form video.
-              </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 fade-in-up">
+                    <div class="accordion" id="faqAccordion">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1" id="faq-btn-1">
+                                    How does SafeScroll work inside social media apps?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    SafeScroll uses Android's Accessibility Service to read on-screen content in real
+                                    time. Our on-device AI analyses each image, video, and piece of text as it loads —
+                                    and immediately replaces anything harmful with a safe placeholder. Everything
+                                    happens on your phone; nothing is sent to our servers.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2" id="faq-btn-2">
+                                    Who is SafeScroll designed for?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong style="color:var(--violet-300);">Parental Control version:</strong> For
+                                    parents monitoring their child's device — includes social media filtering, sexting
+                                    detection, and inappropriate image alerts sent directly to the parent.<br><br>
+                                    <strong style="color:var(--violet-300);">Adult Self-Control version:</strong> For
+                                    individuals who want to reduce their own exposure to adult content or addictive
+                                    short-form video.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3" id="faq-btn-3">
+                                    What platforms and apps does SafeScroll support?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    SafeScroll works system-wide across all installed apps, including Instagram,
+                                    Facebook, TikTok, YouTube, Twitter/X, Snapchat, Reddit, Discord, Telegram, WhatsApp,
+                                    Chrome browser, and any other app that displays content on screen. Coverage grows
+                                    with every update.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4" id="faq-btn-4">
+                                    Is my family's privacy protected?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely. All content analysis happens locally on your device using an on-device
+                                    AI model. No images, videos, text, or personal data are ever uploaded to our
+                                    servers. Your family's privacy is our foundational design principle — not an
+                                    afterthought.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq5" id="faq-btn-5">
+                                    When will the iOS app be available?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    SafeScroll for iOS is currently under Apple App Store review. We expect it to launch
+                                    soon. <a href="#ios-waitlist" style="color:var(--violet-300);">Join our iOS
+                                        waitlist</a> to be notified the moment it goes live — waitlist members get
+                                    priority early access.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq6" id="faq-btn-6">
+                                    Is SafeScroll free?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes — SafeScroll is free to download and use on Android. There are no hidden fees or
+                                    mandatory subscriptions required to access core protection features.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" id="faq-btn-3">
-                What platforms and apps does SafeScroll support?
-              </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                SafeScroll works system-wide across all installed apps, including Instagram, Facebook, TikTok, YouTube, Twitter/X, Snapchat, Reddit, Discord, Telegram, WhatsApp, Chrome browser, and any other app that displays content on screen. Coverage grows with every update.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" id="faq-btn-4">
-                Is my family's privacy protected?
-              </button>
-            </h2>
-            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Absolutely. All content analysis happens locally on your device using an on-device AI model. No images, videos, text, or personal data are ever uploaded to our servers. Your family's privacy is our foundational design principle — not an afterthought.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" id="faq-btn-5">
-                When will the iOS app be available?
-              </button>
-            </h2>
-            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                SafeScroll for iOS is currently under Apple App Store review. We expect it to launch soon. <a href="#ios-waitlist" style="color:var(--violet-300);">Join our iOS waitlist</a> to be notified the moment it goes live — waitlist members get priority early access.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" id="faq-btn-6">
-                Is SafeScroll free?
-              </button>
-            </h2>
-            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">
-                Yes — SafeScroll is free to download and use on Android. There are no hidden fees or mandatory subscriptions required to access core protection features.
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="row g-4">
+    <footer>
+        <div class="container">
+            <div class="row g-4">
 
-      <!-- Brand -->
-      <div class="col-lg-4">
-        <div class="d-flex align-items-center gap-2 mb-3">
-          <div class="logo-icon"><i class="bi bi-shield-check"></i></div>
-          <span class="footer-logo fs-5">SafeScroll</span>
+                <!-- Brand -->
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-icon"><i class="bi bi-shield-check"></i></div>
+                        <span class="footer-logo fs-5">SafeScroll</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.7; max-width:280px;">
+                        AI-powered adult content blocking that works inside every app — keeping children safe without
+                        limiting their healthy digital lives.
+                    </p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                            target="_blank" rel="noopener" class="trust-badge" style="text-decoration:none;">
+                            <i class="bi bi-google-play"></i> Google Play
+                        </a>
+                        <a href="#ios-waitlist" class="trust-badge" style="text-decoration:none;">
+                            <i class="bi bi-apple"></i> iOS Waitlist
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <div class="footer-heading">Navigation</div>
+                    <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#ios-waitlist">iOS Waitlist</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">Legal</div>
+                    <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        <li><a href="account-deletion.html">Account Deletion</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg-3">
+                    <div class="footer-heading">Get in Touch</div>
+                    <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
+                        <li>
+                            <a href="https://wa.me/6383449908" target="_blank" rel="noopener">
+                                <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>WhatsApp Support
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+                                target="_blank" rel="noopener">
+                                <i class="bi bi-google-play me-2" style="color:#34d399;"></i>Google Play
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#ios-waitlist">
+                                <i class="bi bi-apple me-2" style="color:#c4b5fd;"></i>iOS Early Access
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="row align-items-center footer-bottom">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2026 SafeScroll. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                    <p class="mb-0">Building a safer digital future for children. 🛡️</p>
+                </div>
+            </div>
         </div>
-        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.7; max-width:280px;">
-          AI-powered adult content blocking that works inside every app — keeping children safe without limiting their healthy digital lives.
-        </p>
-        <div class="d-flex gap-3 mt-3">
-          <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-             target="_blank" rel="noopener" class="trust-badge" style="text-decoration:none;">
-            <i class="bi bi-google-play"></i> Google Play
-          </a>
-          <a href="#ios-waitlist" class="trust-badge" style="text-decoration:none;">
+    </footer>
+
+
+    <!-- Mobile Sticky Bottom CTA Bar -->
+    <div class="mobile-sticky-cta">
+        <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
+            target="_blank" rel="noopener" id="mobile-android-cta" class="btn-cta-mobile btn-android-mobile">
+            <i class="bi bi-google-play"></i> Get Android
+        </a>
+        <a href="#ios-waitlist" id="mobile-ios-cta" class="btn-cta-mobile btn-ios-mobile">
             <i class="bi bi-apple"></i> iOS Waitlist
-          </a>
-        </div>
-      </div>
-
-      <!-- Links -->
-      <div class="col-6 col-lg-2 offset-lg-1">
-        <div class="footer-heading">Navigation</div>
-        <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#download">Download</a></li>
-          <li><a href="#ios-waitlist">iOS Waitlist</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal -->
-      <div class="col-6 col-lg-2">
-        <div class="footer-heading">Legal</div>
-        <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
-          <li><a href="policy.html">Privacy Policy</a></li>
-          <li><a href="account-deletion.html">Account Deletion</a></li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="col-lg-3">
-        <div class="footer-heading">Get in Touch</div>
-        <ul class="list-unstyled" style="font-size:0.9rem; line-height:2.2;">
-          <li>
-            <a href="https://wa.me/6383449908" target="_blank" rel="noopener">
-              <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>WhatsApp Support
-            </a>
-          </li>
-          <li>
-            <a href="https://play.google.com/store/apps/details?id=com.safescroll.safescroll&pcampaignid=web_share"
-               target="_blank" rel="noopener">
-              <i class="bi bi-google-play me-2" style="color:#34d399;"></i>Google Play
-            </a>
-          </li>
-          <li>
-            <a href="#ios-waitlist">
-              <i class="bi bi-apple me-2" style="color:#c4b5fd;"></i>iOS Early Access
-            </a>
-          </li>
-        </ul>
-      </div>
-
+        </a>
     </div>
 
-    <hr class="footer-divider">
-
-    <div class="row align-items-center footer-bottom">
-      <div class="col-md-6">
-        <p class="mb-0">© 2026 SafeScroll. All rights reserved.</p>
-      </div>
-      <div class="col-md-6 text-md-end mt-2 mt-md-0">
-        <p class="mb-0">Building a safer digital future for children. 🛡️</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS -->
-<script src="script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
+
 </html>
