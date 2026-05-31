@@ -1168,17 +1168,19 @@ footer a:hover { color: var(--violet-300); }
 }
 
 .mobile-sticky-cta .btn-android-mobile {
-    background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #059669 100%);
+    background-size: 200% auto;
     color: #fff;
     border: none;
-    box-shadow: 0 4px 15px rgba(52, 211, 153, 0.2);
+    animation: shimmer-move 4s linear infinite, pulse-glow-android 3s ease-in-out infinite;
 }
 
 .mobile-sticky-cta .btn-ios-mobile {
-    background: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #7c3aed 100%);
+    background-size: 200% auto;
     color: #fff;
     border: none;
-    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+    animation: shimmer-move 4s linear infinite, pulse-glow-ios 3s ease-in-out infinite;
 }
 
 .mobile-sticky-cta .btn-cta-mobile:active {
@@ -1192,4 +1194,21 @@ footer a:hover { color: var(--violet-300); }
     .mobile-sticky-cta {
         display: flex; /* Show on mobile */
     }
+}
+
+/* ─── Mobile CTA Keyframe Animations ───────────────────────────── */
+@keyframes pulse-glow-android {
+    0%, 100% { box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25); }
+    50% { box-shadow: 0 4px 22px rgba(16, 185, 129, 0.65); }
+}
+
+@keyframes pulse-glow-ios {
+    0%, 100% { box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25); }
+    50% { box-shadow: 0 4px 22px rgba(124, 58, 237, 0.65); }
+}
+
+@keyframes shimmer-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
