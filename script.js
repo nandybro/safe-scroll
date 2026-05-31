@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ─────────────────────────────────────────
-     iOS badge — scroll to waitlist & focus email
+     iOS badge — scroll to waitlist
   ───────────────────────────────────────── */
   const iosBadges = document.querySelectorAll('#hero-ios-btn, #mobile-ios-cta');
   iosBadges.forEach(badge => {
@@ -291,14 +291,6 @@ document.addEventListener('DOMContentLoaded', function () {
       if (target) {
         const top = target.getBoundingClientRect().top + window.scrollY - 88;
         window.scrollTo({ top, behavior: 'smooth' });
-
-        // Focus the email input after smooth scroll completes
-        setTimeout(() => {
-          const emailInput = document.getElementById('waitlist-email');
-          if (emailInput) {
-            emailInput.focus();
-          }
-        }, 800);
       }
     });
   });
