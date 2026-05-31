@@ -281,13 +281,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ─────────────────────────────────────────
-     iOS badge — scroll to waitlist
+     iOS badge — scroll to waitlist card
   ───────────────────────────────────────── */
   const iosBadges = document.querySelectorAll('#hero-ios-btn, #mobile-ios-cta');
   iosBadges.forEach(badge => {
     badge.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.getElementById('ios-waitlist');
+      const target = document.getElementById('waitlist-card') || document.getElementById('ios-waitlist');
       if (target) {
         const top = target.getBoundingClientRect().top + window.scrollY - 88;
         window.scrollTo({ top, behavior: 'smooth' });
